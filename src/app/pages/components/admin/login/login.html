@@ -1,0 +1,17 @@
+<div class="login-container">
+  <h2>ورود به پنل مدیریت</h2>
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="usernameOrEmail">نام کاربری یا ایمیل:</label>
+      <input type="text" id="usernameOrEmail" [(ngModel)]="credentials.usernameOrEmail" name="usernameOrEmail" required>
+    </div>
+    <div class="form-group">
+      <label for="password">رمز عبور:</label>
+      <input type="password" id="password" [(ngModel)]="credentials.password" name="password" required>
+    </div>
+    <button type="submit">ورود</button>
+  </form>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

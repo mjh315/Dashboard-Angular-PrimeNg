@@ -3,11 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dashboard": {
+    "ies-dev-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -24,16 +46,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts",
+                "output": "assets/fonts"
               }
             ],
             "styles": [
-              "src/styles.scss"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+              "src/assets/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,10 +85,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dashboard:build:production"
+              "buildTarget": "ies-dev-front:build:production"
             },
             "development": {
-              "buildTarget": "dashboard:build:development"
+              "buildTarget": "ies-dev-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,11 +108,16 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/styles.scss",
+              "node_modules/primeng/resources/themes/lara-dark-indigo/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a26e8e1d-880a-41ae-a3ad-87091a6f190a"
   }
 }

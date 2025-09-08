@@ -1,0 +1,110 @@
+// File Path: src/app/pages/login/login.component.scss
+
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$background-color: #f0f2f5;
+$card-bg-color: #ffffff;
+$text-color: #333;
+$label-color: #555;
+$border-color: #ddd;
+$error-color: #dc3545;
+$error-bg: #f8d7da;
+$error-border: #f5c6cb;
+
+@mixin box-shadow($h-offset: 0, $v-offset: 4px, $blur: 15px, $spread: 0, $color: rgba(0, 0, 0, 0.1)) {
+  box-shadow: #{$h-offset} #{$v-offset} #{$blur} #{$spread} #{$color};
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $background-color;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: $text-color;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-align: center;
+}
+
+form {
+  background-color: $card-bg-color;
+  padding: 40px;
+  border-radius: 10px;
+  @include box-shadow;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.form-group {
+  margin-bottom: 25px;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: $label-color;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    }
+  }
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $secondary-color;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.error-message {
+  color: $error-color;
+  background-color: $error-bg;
+  border: 1px solid $error-border;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  @include box-shadow(0, 2px, 8px, 0, rgba(0, 0, 0, 0.08));
+}
