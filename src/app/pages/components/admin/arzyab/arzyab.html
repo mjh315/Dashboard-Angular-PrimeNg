@@ -1,0 +1,58 @@
+<p-card class="card">
+    <div class="p-card-header">
+        <h2 class="p-card-title">تعریف ارزیاب</h2>
+    </div>
+    <div class="p-card-body">
+        <form [formGroup]="arzyabForm" (ngSubmit)="onSubmit()">
+            <div class="p-fluid p-grid">
+                <div class="p-col-12 p-md-6">
+                    <p-floatlabel variant="on">
+                        <input class="w-5rem" id="firstName" type="text" pInputText formControlName="firstName" />
+                        <label for="firstName">نام و نام خانوادگی ارزیاب</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <input class="w-6rem" id="nationalId" type="text" pInputText formControlName="nationalId" />
+                        <label for="nationalId">کد ملی</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <input id="username" type="text" pInputText formControlName="username" />
+                        <label for="username">نام کاربری</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <p-select id="organizationalPost" [options]="organizationalPosts" class="w-full"
+                            formControlName="organizationalPost"></p-select>
+                        <label for="organizationalPost">پست سازمانی</label>
+                    </p-floatlabel>
+                </div>
+
+                <div class="p-col-12 p-md-6">
+                    <p-floatlabel variant="on">
+                        <input id="staffNumber" type="text" pInputText formControlName="staffNumber" />
+                        <label for="staffNumber">شماره پرسنلی</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <input id="mobileNumber" type="text" pInputText formControlName="mobileNumber" />
+                        <label for="mobileNumber">شماره موبایل</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <p-password id="password" [toggleMask]="true" formControlName="password"></p-password>
+                        <label for="password">رمز عبور</label>
+                    </p-floatlabel>
+                </div>
+            </div>
+
+            <div class="flex align-items-center">
+                <label class="flex align-items-center">وضعیت ارزیاب: </label> &nbsp;
+                <p-selectbutton formControlName="status" [options]="stateOptions" [(ngModel)]="value"
+                    optionLabel="label" optionValue="value" aria-labelledby="basic" />
+            </div>
+
+            <button pButton type="submit" label="ثبت ارزیاب" [disabled]="arzyabForm.invalid"></button>
+        </form>
+    </div>
+</p-card>
