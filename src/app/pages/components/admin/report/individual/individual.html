@@ -1,0 +1,70 @@
+<p-card class="card">
+    <div class="p-card-header">
+        <!-- <h2 class="p-card-title">کارنامه فردی</h2> -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;" dir="rtl">
+            <h2>کارنامه فردی</h2>
+            <p-selectbutton [options]="viewOptions" [(ngModel)]="viewMode" optionLabel="label" optionValue="value"
+                style="direction: rtl;">
+            </p-selectbutton>
+        </div>
+    </div>
+    <div class="p-card-body">
+        <form [formGroup]="arzyabForm" (ngSubmit)="onSubmit()">
+            <div class="flex flex-col flex-wrap">
+                <div class="flex p-md-6">
+                    <p-floatlabel variant="on">
+                        <p-select class="min-w-60" id="shiftId" [options]="shifts" formControlName="shiftId"></p-select>
+                        <label for="shiftId">شیفت</label>
+                    </p-floatlabel>
+                    <p-floatlabel variant="on">
+                        <p-select class="min-w-60" id="firefighterId" [options]="firefighters"
+                            formControlName="firefighterId" [disabled]="!arzyabForm.value.shiftId"></p-select>
+                        <label for="firefighterId">آتش‌نشان</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <p-datepicker class="min-w-60" [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay"
+                            formControlName="fromDate" dateFormat="yy/mm/dd" />
+                        <label for="fromDate">از تاریخ</label>
+                    </p-floatlabel>
+
+                </div>
+
+                <div class="flex p-md-6">
+                    <p-floatlabel variant="on">
+                        <p-select class="min-w-60" id="noeTestId" [options]="noeTests"
+                            formControlName="noeTestId"></p-select>
+                        <label for="noeTestId">نوع تست</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <p-select class="min-w-60" id="itemArzyabiId" [options]="itemArzyabies"
+                            formControlName="itemArzyabiId"
+                            [disabled]="!arzyabForm.value.noeTestId || arzyabForm.value.noeTestId === 'ALL'"></p-select>
+                        <label for="itemArzyabiId">آیتم ارزیابی</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel variant="on">
+                        <p-datepicker class="min-w-60" [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay"
+                            formControlName="toDate" dateFormat="yy/mm/dd" />
+
+                        <label for="toDate">تا تاریخ</label>
+                    </p-floatlabel>
+
+                </div>
+
+                <p-button class="p-md-6 m-3" label="جستجو" type="submit" (click)="onSubmit()" />
+
+
+            </div>
+
+
+
+
+            <!-- فقط یکی نمایش داده می‌شود -->
+            <app-individual-table *ngIf="viewMode === 'table'" [data]="karnameData"></app-individual-table>
+            <app-individual-chart *ngIf="viewMode === 'chart'" [data]="karnameData"></app-individual-chart>
+
+        </form>
+    </div>
+</p-card>

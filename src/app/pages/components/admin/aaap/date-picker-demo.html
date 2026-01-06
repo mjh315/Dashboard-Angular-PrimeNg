@@ -1,0 +1,6 @@
+<app-custom-datepicker 
+  [selectedDate]="myDate" 
+  (dateSelected)="onDateChange($event)">
+</app-custom-datepicker>
+
+<p>تاریخ انتخاب شده: {{ myDate | date: 'fullDate' }}</p>

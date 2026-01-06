@@ -1,0 +1,50 @@
+<p-confirmDialog></p-confirmDialog>
+
+<p-card dir="rtl" class="py-3 px-5">
+    <ng-template #header>
+        <div class="flex px-4 justify-content-between">
+            <h2 class="m-0">
+                لیست آتشنشان‌ها
+            </h2>
+            <div class="actions">
+                <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="add()" pTooltip="افزودن آتشنشان" />
+            </div>
+        </div>
+    </ng-template>
+    <p-card>
+        <p-table dir="rtl" stripedRows [value]="firefighterList" [loading]="loading" responsiveLayout="scroll"
+            dataKey="firefighterId" class="m-1">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>نام و نام خانوادگی</th>
+                    <th>کد پرسنلی</th>
+                    <th>کد ملی</th>
+                    <th>موبایل</th>
+                    <th>پست سازمانی</th>
+                    <th>درجه</th>
+                    <th>شیفت</th>
+                    <th>وضعیت</th>
+                    <th>عملیات</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-row>
+                <tr>
+                    <td>{{ row.name_Family }}</td>
+                    <td>{{ row.personnelCode }}</td>
+                    <td>{{ row.nationalId }}</td>
+                    <td>{{ row.mobileNumber }}</td>
+                    <td>{{ row.organizationalPostName }}</td>
+                    <td>{{ row.rankName }}</td>
+                    <td>{{ row.shiftName }}</td>
+                    <td>{{ row.isActive ? 'فعال' : 'غیرفعال' }}</td>
+                    <td>
+                        <p-menu dir="rtl" #menu [model]="items" [popup]="true" appendTo="body" />
+                        <p-button (click)="menu.toggle($event); onContextMenu(row)" icon="pi pi-ellipsis-v"
+                            [rounded]="true" [text]="true" />
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-card>
+</p-card>

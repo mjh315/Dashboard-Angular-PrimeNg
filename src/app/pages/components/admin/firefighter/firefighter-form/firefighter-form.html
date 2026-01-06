@@ -1,0 +1,154 @@
+<p-card>
+    <ng-template pTemplate="title">
+        {{ isEdit ? 'ویرایش آتشنشان' : 'افزودن آتشنشان جدید' }}
+    </ng-template>
+
+    <form [formGroup]="firefighterForm" (ngSubmit)="save()">
+        <div class="p-fluid p-grid">
+            <!-- ستون اول -->
+            <div class="p-col-12 p-md-6">
+                <!-- نام و نام خانوادگی -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <input id="fullname" pInputText formControlName="name_Family">
+                        <label for="fullname">نام و نام خانوادگی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- کد ملی -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <input id="nationalId" pInputText formControlName="nationalId">
+                        <label for="nationalId">کد ملی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- شماره پرسنلی -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <input id="personnelCode" pInputText formControlName="personnelCode">
+                        <label for="personnelCode">شماره پرسنلی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- شماره موبایل -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <input id="mobileNumber" pInputText formControlName="mobileNumber">
+                        <label for="mobileNumber">شماره موبایل</label>
+                    </p-floatlabel>
+                </div>
+                <!-- 
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <p-datePicker id="birthDate" formControlName="birthDate" [iconDisplay]="'input'" [defaultDate]="date"
+                            [showIcon]="true" inputId="icondisplay"></p-datePicker>
+                        <label for="birthDate">تاریخ تولد</label>
+                    </p-floatlabel>
+                    <app-custom-datepicker-input></app-custom-datepicker-input>
+                </div> -->
+
+
+                <div class="p-field">
+                    <!-- <div class="field col-12 md:col-6">
+                        <label for="birthDate">تاریخ تولد</label>
+
+                    </div> -->
+                    <p-floatlabel variant="on">
+                        <input pInputText id="birthDate" type="text" formControlName="birthDate"
+                            [appDatepicker]="myDate" (dateChange)="onDatePicked($event)">
+                        <label for="birthDate">تاریخ تولد</label>
+                    </p-floatlabel>
+                </div>
+                <!-- تاریخ تولد -->
+                <!-- <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <input id="birthDate" pInputText [appDatepicker]="myDate" (dateChange)="myDate = $event"
+                            type="date">
+                        <label for="birthDate">تاریخ تولد</label>
+                    </p-floatlabel>
+                </div> -->
+            </div>
+
+            <!-- ستون دوم -->
+            <div class="p-col-12 p-md-6">
+                <!-- پست سازمانی -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <p-select [options]="organizationalPosts" optionLabel="label" optionValue="value"
+                            formControlName="organizationalPostId">
+                        </p-select>
+                        <label>پست سازمانی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- درجه -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <p-select [options]="ranks" optionLabel="label" optionValue="value" formControlName="rankId">
+                        </p-select>
+                        <label>درجه</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- سابقه کار -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <p-select [options]="workExperiences" optionLabel="label" optionValue="value"
+                            formControlName="workExperienceId">
+                        </p-select>
+                        <label>سابقه کار</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- سطح -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <p-select [options]="levels" optionLabel="label" optionValue="value" formControlName="levelId">
+                        </p-select>
+                        <label>سطح</label>
+                    </p-floatlabel>
+                </div>
+
+
+
+                <!-- سابقه کار -->
+                <div class="p-field">
+                    <p-floatlabel variant="on">
+                        <p-select [options]="shifts" optionLabel="label" optionValue="value" formControlName="shiftId">
+                        </p-select>
+                        <label>شیفت</label>
+                    </p-floatlabel>
+                </div>
+
+
+
+                <!-- وضعیت شیفت و فعال -->
+                <div class="p-grid">
+                    <!-- <div class="p-col-6">
+                        <div class="p-field-checkbox">
+                            <p-checkbox formControlName="isInShift" binary="true" 
+                                       inputId="isInShift"></p-checkbox>
+                            <label for="isInShift">در شیفت</label>
+                        </div>
+                    </div> -->
+                    <div class="p-col-6">
+                        <div class="p-field-checkbox">
+                            <p-checkbox formControlName="isActive" binary="true" inputId="isActive"></p-checkbox>
+                            <label for="isActive">فعال</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- دکمه‌ها -->
+            <div class="p-col-12" style="text-align: left;">
+                <p-button type="submit" label="{{ isEdit ? 'ثبت تغییرات' : 'افزودن'}}" icon="pi pi-check"
+                    [disabled]="firefighterForm.invalid || loading" [loading]="loading">
+                </p-button>
+                <p-button type="button" label="انصراف" icon="pi pi-times" class="p-button-secondary" (click)="cancel()">
+                </p-button>
+            </div>
+        </div>
+    </form>
+</p-card>

@@ -24,12 +24,16 @@ export class AppMenu {
                 label: 'خانه',
                 items: [
                     { label: 'پیشخوان', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
-                    { label: 'ارزیاب', icon: 'pi pi-fw pi-users', routerLink: ['/ش'] },
-                    { label: 'گزارشات', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/ش'],
-                        items:[{
-                            label: 'جامع', icon:'', routerLink: ['/']
-                        }]
-                     },
+                    { label: 'ارزیاب', icon: 'pi pi-fw pi-users', routerLink: ['/arzyab'] },
+                    {
+                        label: 'گزارشات', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/ش'],
+                        items: [{
+                            label: 'کارنامه فردی', icon: '', routerLink: ['/individual']
+                        }, {
+                            label: 'کارنامه جمعی', icon: '', routerLink: ['/collective'],
+                        }
+                        ]
+                    },
                     { label: 'آتش‌نشان', icon: 'pi pi-fw pi-home', routerLink: ['/س'] },
                     { label: 'نتایج', icon: 'pi pi-fw pi-home', routerLink: ['/ی'] },
                 ]

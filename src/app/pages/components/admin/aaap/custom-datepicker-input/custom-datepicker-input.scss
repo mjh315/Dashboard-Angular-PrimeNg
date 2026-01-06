@@ -1,0 +1,52 @@
+/* custom-datepicker-input.component.css */
+
+/* استایل FloatLabel شبیه به PrimeNG */
+.p-field {
+  position: relative;
+  margin-top: 1.5rem; /* برای فاصله label از بالا */
+  direction: rtl; /* برای جهت‌گیری فارسی */
+}
+
+.p-inputtext {
+  padding: 0.75rem 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-duration);
+}
+
+.p-inputtext:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem var(--primary-color-shadow);
+}
+
+.p-float-label label {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem; /* برای راست به چپ */
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--text-color-secondary);
+  transition: transform var(--transition-duration), font-size var(--transition-duration);
+  pointer-events: none;
+}
+
+.p-float-label .p-inputtext:focus ~ label,
+.p-float-label .p-inputtext:not(:placeholder-shown) ~ label {
+  top: 0;
+  right: 0.75rem; /* برای راست به چپ */
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  background-color: var(--surface-card); /* برای پوشاندن خط input */
+  padding: 0 0.25rem;
+}
+
+
+
+.p-datepicker-popup-visible {
+  display: block;
+}

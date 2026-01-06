@@ -1,0 +1,60 @@
+// تنظیمات پایه برای کامپوننت
+.p-card {
+    margin: 0 auto;
+    padding: 20px;
+    direction: rtl; 
+    text-align: right;
+}
+
+.p-card-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+// طرح‌بندی اصلی فرم با گرید
+.p-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+// تنظیمات برای ستون‌ها
+.p-col-12 {
+    width: 100%;
+    padding: 1rem;
+}
+.p-md-6 {
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+}
+
+// تنظیمات برای فیلدها
+.p-field {
+    margin-bottom: 2rem; 
+    .p-inputtext, .p-password, .p-dropdown {
+        width: 100%;
+    }
+}
+
+// تنظیمات برای دکمه‌های رادیویی
+.p-field-checkbox {
+    margin-top: 2rem;
+    label {
+        margin-right: 1rem;
+    }
+}
+
+// حذف استایل‌های p-floatlabel قبلی
+// PrimeNG به صورت خودکار استایل‌های لازم برای variant="on" را اعمال می‌کند.
+
+p-floatlabel{
+    margin: 1rem;
+}
+
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}

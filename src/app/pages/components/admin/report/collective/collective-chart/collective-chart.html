@@ -1,0 +1,14 @@
+<div class="chart-container" dir="rtl">
+    <div echarts [options]="chartOptions" class="chart" style="height: 400px;" (chartClick)="onChartClick($event)"
+        #chartInstance></div>
+    <div class="flex justify-content-center flex-wrap">
+        <p-button class="mx-1" *ngIf="isDrilldown || isIndividualDrilldown || isDetailedDrilldown" (click)="goBack()" icon="pi pi-arrow-right" label="بازگشت">
+        </p-button>
+        <p-button class="mx-1" (click)="exportChartAsImage()" icon="pi pi-download" label="ذخیره تصویر">
+        </p-button>
+    </div>
+
+    <div *ngIf="!data?.length" class="empty-data-message">
+        هیچ داده‌ای برای نمایش وجود ندارد.
+    </div>
+</div>

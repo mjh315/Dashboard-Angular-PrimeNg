@@ -1,0 +1,6 @@
+<p-floatlabel variant="on">
+    <input pInputText id="on_label" autocomplete="off" appendTo="body" [appDatepicker]="myDate" (dateChange)="myDate = $event"/>
+    <label for="on_label">On Label</label>
+</p-floatlabel>
+<p>تاریخ انتخاب شده: {{ myDate | date: 'fullDate' }}</p>
+<button (click)="l()">ddd</button>

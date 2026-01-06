@@ -3,6 +3,8 @@
 @use './layout/layout.scss';
 @use 'primeicons/primeicons.css';
 @use './demo/demo.scss';
+// @import 'primeflex/primeflex.scss';
+
 
 
 @font-face {
@@ -10,8 +12,10 @@
     src: url(./fonts/IRANSans-Edit.ttf);
 }
 
-*{
+* {
     font-family: ir;
 }
 
-
+.p-menu-item-link {
+    direction: rtl;
+}

@@ -1,0 +1,63 @@
+<div class="p-datepicker p-component">
+  <div class="p-datepicker-header">
+    <button class="p-datepicker-prev" (click)="viewMode === 'calendar' ? previousMonth() : viewMode === 'year-picker' ? previousYears() : null">
+      <span class="pi pi-chevron-right"></span>
+    </button>
+    
+    <div class="p-datepicker-title">
+      <span class="p-datepicker-month-year">
+        <span *ngIf="viewMode === 'calendar'" class="p-datepicker-month" (click)="showMonthPicker()">{{ jalaaliMonths[currentJalaaliDate.jm - 1] }}</span>
+        <span *ngIf="viewMode !== 'year-picker'" class="p-datepicker-year" (click)="showYearPicker()">{{ currentJalaaliDate.jy }}</span>
+        <span *ngIf="viewMode === 'year-picker'">{{ yearRange[0] }} - {{ yearRange[11] }}</span>
+      </span>
+    </div>
+
+    <button class="p-datepicker-next" (click)="viewMode === 'calendar' ? nextMonth() : viewMode === 'year-picker' ? nextYears() : null">
+      <span class="pi pi-chevron-left"></span>
+    </button>
+  </div>
+
+  <div *ngIf="viewMode === 'calendar'" class="p-datepicker-calendar-container">
+    <table class="p-datepicker-calendar">
+      <thead>
+        <tr>
+          <th *ngFor="let day of jalaaliDaysOfWeek">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let week of generateCalendar()">
+          <td *ngFor="let day of week">
+            <span
+              class="p-day"
+              [class.p-highlight]="isDateSelected(day)"
+              (click)="selectDay(day)">
+              {{ day }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="viewMode === 'month-picker'" class="p-monthpicker">
+    <div class="p-monthpicker-container">
+      <button 
+        *ngFor="let month of jalaaliMonths; let i = index" 
+        class="p-month"
+        (click)="selectMonth(i)">
+        {{ month }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="viewMode === 'year-picker'" class="p-yearpicker">
+    <div class="p-yearpicker-container">
+      <button 
+        *ngFor="let year of yearRange" 
+        class="p-year"
+        (click)="selectYear(year)">
+        {{ year }}
+      </button>
+    </div>
+  </div>
+</div>

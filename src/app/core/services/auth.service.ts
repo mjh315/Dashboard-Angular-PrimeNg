@@ -9,7 +9,7 @@ import { AuthResultDto } from '../models/auth-result.dto';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:5111/api/auth';
+  private apiUrl = 'https://physicalfitnesspanelapi.algacall.ir/api/auth';
 
   constructor(private http: HttpClient) { }
 

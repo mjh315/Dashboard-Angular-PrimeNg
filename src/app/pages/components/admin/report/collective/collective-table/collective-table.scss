@@ -1,0 +1,57 @@
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-text {
+  font-weight: bold;
+}
+
+.status-very-weak {
+  background-color: #ff0000 !important;
+  color: white !important;
+}
+
+.status-weak {
+  background-color: #ff7f00 !important;
+  color: white !important;
+}
+
+.status-average {
+  background-color: #ffff00 !important;
+  color: black !important;
+}
+
+.status-good {
+  background-color: #7fff00 !important;
+  color: black !important;
+}
+
+.status-excellent {
+  background-color: #00ff00 !important;
+  color: white !important;
+}
+
+.p-progressbar {
+  background-color: #e0e0e0 !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  min-height: 14px !important;
+}
+
+.p-progressbar-value {
+  background-color: #4CAF50 !important;
+  border-radius: 4px !important;
+  min-height: 14px !important;
+
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  /* مطمئن شوید که فاصله کافی بین عناصر وجود دارد */
+}

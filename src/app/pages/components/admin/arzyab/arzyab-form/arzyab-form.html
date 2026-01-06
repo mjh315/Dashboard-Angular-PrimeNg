@@ -1,0 +1,92 @@
+<p-card>
+    <ng-template pTemplate="title">
+        {{ isEdit ? 'ویرایش ارزیاب' : 'افزودن ارزیاب جدید' }}
+    </ng-template>
+
+    <form [formGroup]="arzyabForm" (ngSubmit)="save()">
+        <div class="p-fluid p-grid">
+            <div class="p-col-12 p-md-6">
+
+                <!-- نام و نام خانوادگی -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0">
+                    <p-floatlabel variant="on" class="w-8">
+                        <input id="fullname" pInputText formControlName="name_Family">
+                        <label for="fullname">نام و نام خانوادگی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- کد ملی -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0 ">
+                    <p-floatlabel variant="on" class="w-8">
+                        <input id="nationalId" pInputText formControlName="nationalId">
+                        <label for="nationalId">کد ملی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- نام کاربری -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0 ">
+                    <p-floatlabel variant="on" class="w-8">
+                        <input id="username" pInputText formControlName="username">
+                        <label for="username">نام کاربری</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- پست سازمانی -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0 ">
+                    <p-floatlabel variant="on" class="w-8">
+                        <p-select class="w-full" id="organizationalPost" [options]="organizationalPosts"
+                            optionLabel="label" optionValue="value" formControlName="organizationalPost">
+                        </p-select>
+                        <label for="organizationalPost">پست سازمانی</label>
+                    </p-floatlabel>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-6">
+
+
+                <!-- شماره پرسنلی -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0 ">
+                    <p-floatlabel variant="on" class="w-8">
+                        <input id="staffNumber" pInputText formControlName="staffNumber">
+                        <label for="staffNumber">شماره پرسنلی</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- شماره موبایل -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0">
+                    <p-floatlabel variant="on" class="w-8">
+                        <input id="mobileNumber" pInputText formControlName="mobileNumber">
+                        <label for="mobileNumber">شماره موبایل</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- رمز عبور -->
+                <div class="p-field p-col-12  m-0 p-0 pb-2 p-0">
+                    <p-floatlabel variant="on" class="w-8">
+                        <p-password dir="lrt" [toggleMask]="true" class="w-full" autocomplete="new-password" id="password"
+                            formControlName="password" />
+                        <label for="password">رمز عبور</label>
+                    </p-floatlabel>
+                </div>
+
+                <!-- وضعیت -->
+                <div class="p-field p-col-12 m-0 p-0 pb-2 p-0 ">
+                    <p-selectbutton class="w-8" [options]="stateOptions" optionLabel="label" optionValue="value"
+                        formControlName="status">
+                    </p-selectbutton>
+                </div>
+
+            </div>
+            <!-- دکمه‌ها -->
+            <div class="p-col-12" style="text-align:left">
+                <p-button pButton type="submit" label="{{ isEdit ? 'ثبت تغییرات' : 'افزودن'}}" icon="pi pi-check"
+                    [disabled]="arzyabForm.invalid">
+                </p-button>
+                <p-button pButton type="button" label="انصراف" icon="pi pi-times" class="p-button-secondary"
+                    (click)="cancel()">
+                </p-button>
+            </div>
+        </div>
+    </form>
+</p-card>

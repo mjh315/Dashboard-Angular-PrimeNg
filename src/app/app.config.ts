@@ -12,8 +12,15 @@ import { AuthGuard } from './core/guards/auth-guard';
 import { authTokenInterceptor } from './core/interceptor/auth-interceptor';
 
 
+// --- این بخش‌ها را اضافه کنید ---
+import { provideEchartsCore } from 'ngx-echarts';
+import * as echarts from 'echarts';
+// ---------------------------------
+
+
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideEchartsCore({ echarts }),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideAnimations(),

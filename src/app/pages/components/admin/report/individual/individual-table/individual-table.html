@@ -1,0 +1,18 @@
+<p-table [value]="data" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'" dir="rtl">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>نوع تست</th>
+      <th>آیتم ارزیابی</th>
+      <th>وضعیت نمره</th>
+      <th>شیفت</th>
+      <th>آتش‌نشان</th>
+      <th>ارزیاب</th>
+      <th>نمره</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <td>{{ row.titleNoeTest }}</td> <td>{{ row.titleItemsArzyabi }}</td> <td>{{ row.titleVaziyatNomreh }}</td> <td>{{ row.nameShift }}</td> <td>{{ row.nameFamilyAtashNeshan }}</td> <td>{{ row.nameFamily }}</td> <td>{{ row.nomreh }}</td>
+    </tr>
+  </ng-template>
+</p-table>

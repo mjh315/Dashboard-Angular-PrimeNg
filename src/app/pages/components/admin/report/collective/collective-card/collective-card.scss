@@ -1,0 +1,59 @@
+.score-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #495057;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.score-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.separator {
+    color: #c0c0c0;
+}
+
+.score-number {
+    font-weight: bold;
+}
+
+.score-status-text {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.card-with-progressbar {
+  position: relative;
+  overflow: hidden;
+
+  .p-card {
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+.card-footer-progressbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .p-progressbar {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+  }
+}
+
+.card-content {
+    padding: 1.25rem;
+    padding-bottom: 0.5rem;
+}

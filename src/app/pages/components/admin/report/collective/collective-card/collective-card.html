@@ -1,0 +1,38 @@
+<p-card class="card-with-progressbar ">
+    <div class="score-info">
+        <span class="score-status-text">
+            <p-tag  [value]="row.titleVaziyatNomreh || ''" [severity]="getScoreSeverity(row.titleVaziyatNomreh)">
+                
+            </p-tag>
+        </span>
+        <span class="separator">|</span>
+        <span class="score-number">
+            {{ row.nomreh }}
+        </span>
+        <div class="score-circle" [ngStyle]="{ 'background-color': getProgressBarColor(row.nomreh) }"></div>
+
+    </div>
+    <div class="card-content">
+        <div class="header-section">
+            <h3 class="firefighter-name">{{ row.nameFamilyAtashNeshan }}</h3>
+        </div>
+        <div class="details-section">
+            <span class="label">نوع تست:</span>
+            <span class="value">{{ row.titleNoeTest }}</span>
+            <div class="detail-item">
+            </div>
+            <div class="detail-item">
+                <span class="label">آیتم ارزیابی:</span>
+                <span class="value">{{ row.titleItemsArzyabi }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">شیفت:</span>
+                <span class="value">{{ row.nameShift }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer-progressbar">
+        <p-progressBar #progressBar [value]="row.nomreh" [style]="{ 'height': '4px' }"
+            [showValue]="false"></p-progressBar>
+    </div>
+</p-card>

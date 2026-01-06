@@ -1,0 +1,25 @@
+<div dir="rtl" class="col-span-12 lg:col-span-6 xl:col-span-3" >
+    <div class="card mb-0 h-[13rem]" style="padding-bottom: 0; padding-left: 0; padding-right: 0; padding: 0;">
+        
+        <div class="flex justify-between px-4 pt-4">
+            <div>
+                <span class="block text-muted-color font-medium">بازه سنی آتشنشان‌ها</span>
+            </div>
+        </div>
+
+        <ng-container *ngIf="!data || data.length === 0">
+            <div dir="rtl" role="status" class="max-w-sm px-3 rounded-sm animate-pulse md:px-4 py-2 dark:border-gray-700 h-[11rem]">
+                <div class="flex items-baseline mt-5 h-[8rem]" dir="ltr">
+                    <div class="w-full ms-3 bg-surface-200 dark:bg-surface-600 rounded-t-lg h-11"></div>
+                    <div class="w-full h-21 ms-3 bg-surface-200 dark:bg-surface-600 rounded-t-lg h-24"></div>
+                    <div class="w-full h-21 ms-3 bg-surface-200 dark:bg-surface-600 rounded-t-lg h-16"></div>
+                    <div class="w-full h-21 ms-3 bg-surface-200 dark:bg-surface-600 rounded-t-lg h-10"></div>
+                </div>
+            </div>
+        </ng-container>
+        
+        <ng-container *ngIf="data && data.length > 0">
+            <div #chartContainer class="chart-container flex-grow"></div>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+/* custom-datepicker.component.css */
+:host {
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+.p-datepicker {
+    min-width: 29.2rem;
+    background: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: var(--surface-overlay-shadow);
+    display: inline-block;
+    direction: rtl;
+    /* برای تقویم شمسی لازم می‌شود */
+}
+
+.p-datepicker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.p-datepicker-title {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.p-datepicker-prev,
+.p-datepicker-next {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    color: var(--text-color-secondary);
+    transition: background-color var(--transition-duration);
+}
+
+.p-datepicker-prev:hover,
+.p-datepicker-next:hover {
+    background-color: var(--surface-hover);
+}
+
+.p-datepicker-calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.p-datepicker-calendar th {
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem;
+    color: var(--text-color-secondary);
+}
+
+.p-datepicker-calendar td {
+    text-align: center;
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+.p-day {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    border-radius: 50%;
+    transition: background-color var(--transition-duration);
+}
+
+.p-day:hover {
+    background-color: var(--surface-hover);
+}
+
+.p-day.p-highlight {
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+}
+
+
+/* استایل برای انتخاب‌گر ماه */
+.p-monthpicker,
+.p-yearpicker {
+    text-align: center;
+}
+
+.p-monthpicker-container,
+.p-yearpicker-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.p-month,
+.p-year {
+    background: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+}
+
+.p-month:hover,
+.p-year:hover {
+    background-color: var(--surface-hover);
+}
+
+/* برای هایلایت کردن سال یا ماه انتخاب شده */
+.p-month.p-highlight,
+.p-year.p-highlight {
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+}
